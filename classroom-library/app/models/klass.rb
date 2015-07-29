@@ -1,9 +1,11 @@
 class Klass < ActiveRecord::Base
-  def change
-    create_table :klasses do |t|
+  validates :teacher_id, presence: true
+  validates :klass_number, presence: true
+  validates :grade, presence: true
 
+  validates :klass_number, uniqueness: true
 
-      t.timestamps null: false
-    end
-  end
+  belongs_to :teacher
+
+  has_many :students
 end

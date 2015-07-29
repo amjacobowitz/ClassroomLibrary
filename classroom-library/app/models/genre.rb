@@ -1,9 +1,16 @@
 class Genre < ActiveRecord::Base
-  def change
-    create_table :genres do |t|
+  validates :category, presence: true
+
+  validates :category, uniqueness: true
+
+  before_save :to_lower
+
+  has_many :favorite_genres
+  has_many :students, through: :favorite_genres
 
 
-      t.timestamps null: false
-    end
+  def to_lower
+    self.category = self.category.downcase
   end
+
 end

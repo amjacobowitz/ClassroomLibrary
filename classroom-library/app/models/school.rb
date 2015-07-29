@@ -1,9 +1,7 @@
 class School < ActiveRecord::Base
-  def change
-    create_table :schools do |t|
+  validates :name, presence: true
+  validates :name, uniqueness: true
 
-
-      t.timestamps null: false
-    end
-  end
+  has_many :teachers
+  has_many :klasses, through: :teachers
 end

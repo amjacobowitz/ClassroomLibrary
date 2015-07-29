@@ -1,9 +1,7 @@
 class StudentText < ActiveRecord::Base
-  def change
-    create_table :student_texts do |t|
+  validates :student_id, presence: true
+  validates :text_id, presence: true
 
-
-      t.timestamps null: false
-    end
-  end
+  belongs_to :text
+  belongs_to :student
 end

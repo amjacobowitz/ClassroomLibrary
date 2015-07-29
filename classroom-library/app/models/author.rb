@@ -1,9 +1,10 @@
 class Author < ActiveRecord::Base
-  def change
-    create_table :authors do |t|
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
+  validates :first_name, uniqueness: true
+  validates :last_name, uniqueness: true
 
-      t.timestamps null: false
-    end
-  end
+  has_many :favorite_authors
+  has_many :students, through: :favorite_authors
 end

@@ -1,9 +1,7 @@
 class FavoriteGenre < ActiveRecord::Base
-  def change
-    create_table :favorite_genres do |t|
+  validates :student_id, presence: true
+  validates :genre_id, presence: true
 
-
-      t.timestamps null: false
-    end
-  end
+  belongs_to :student
+  belongs_to :genre
 end

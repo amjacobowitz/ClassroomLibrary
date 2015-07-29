@@ -1,9 +1,7 @@
 class FavoriteAuthor < ActiveRecord::Base
-  def change
-    create_table :favorite_authors do |t|
+  validates :student_id, presence: true
+  validates :author_id, presence: true
 
-
-      t.timestamps null: false
-    end
-  end
+  belongs_to :student
+  belongs_to :author
 end
