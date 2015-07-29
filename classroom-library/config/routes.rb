@@ -1,4 +1,88 @@
 Rails.application.routes.draw do
+  get 'texts/index'
+
+  get 'texts/show'
+
+  get 'texts/new'
+
+  get 'texts/edit'
+
+  get 'texts/update'
+
+  get 'texts/create'
+
+  get 'texts/destroy'
+
+  get 'teachers/index'
+
+  get 'teachers/show'
+
+  get 'teachers/new'
+
+  get 'teachers/edit'
+
+  get 'teachers/update'
+
+  get 'teachers/create'
+
+  get 'teachers/destroy'
+
+  get 'sessions/index'
+
+  get 'sessions/show'
+
+  get 'sessions/new'
+
+  get 'sessions/edit'
+
+  get 'sessions/update'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'groups/index'
+
+  get 'groups/show'
+
+  get 'groups/new'
+
+  get 'groups/edit'
+
+  get 'groups/update'
+
+  get 'groups/create'
+
+  get 'groups/destroy'
+
+  get 'genre/index'
+
+  get 'genre/show'
+
+  get 'genre/new'
+
+  get 'genre/edit'
+
+  get 'genre/update'
+
+  get 'genre/create'
+
+  get 'genre/destroy'
+
+  get 'author/index'
+
+  get 'author/show'
+
+  get 'author/new'
+
+  get 'author/edit'
+
+  get 'author/update'
+
+  get 'author/create'
+
+  get 'author/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
