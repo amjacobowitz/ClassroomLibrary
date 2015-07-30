@@ -1,0 +1,94 @@
+On the teacher Profile
+- print out a grouping
+
+Data Analysis Page
+- see which books + genres + authors + lexile ranges have been read the most
+- a count of total books finished and abandoned
+
+
+On a student view page
+- see a progress towards goal report for a student AND the whole class (displayed as a graph by genre)
+
+
+teachers and admin both can:
+- see a list of all books a user had read + progress towards goal (like a report for a student)
+- receive an email if a review is written with a curse word in it
+
+
+students can:
+- see how many books the user has read in the genres towards their year-long goal.  does this with badges or book titles displaying?  already set up and saved badges, but need to decide which one to display as.
+
+
+only admins can:
+- CRUD a user as a teacher or admin
+
+
+
+
+
+STRETCH (do at the end)
+- students see other students they follow's reviews in a dashboard on their profile like twitter (make the dashboard too!!)
+
+- students can recommend books to each other
+- teachers can recommend books to kids
+- mark a book as "want to read"
+
+- see recommendations of other books they might like based on what they have enjoyed (4 point scale: 1=same genre as favorite genre, 1=same author as favorite author, 2=lexile range within lexile range i.e. 100 above or 50 below lexile score)
+
+OPTIONAL
+- see a list of the top 5 page readers in the class/grade
+- see a list of the top 5 book count readers in the class/grade
+- add waitlist
+
+
+
+
+
+
+
+
+COMPLETED
+- CRUD a student
+- CRUD a text
+- create students from a csv import
+- students can change their own password
+- students can change their own handle
+- students can view another student's profile page with the correct information displaying
+- add an @ to a handle if it isn't created or updated with one
+- check out a book
+- see which other user is reading a book if it is checked out
+- see the details of an individual book above + reviews of the book
+- check in a book
+- mark a book as a favorite
+- mark a genre as a favorite
+- rate book from 1 - 5 stars
+- mark a book being checked in as complete or abandoned
+- review a book (optional when checking in)
+- mark a book as a favorite from the book screen
+- rate book from 1 - 5 stars the book screen
+- write a review of a book (with a title and content)
+- delete their own reviews of a book, but not others' reviews
+- profile includes
+	- favorite genres
+	- favorite books
+	- handle
+	- displays:
+			- reviews for books user has written
+			- ratings for books user has given
+			- all completed books
+			- all abandoned books
+			- total books completed
+			- total books abandoned
+			- total pages read
+- can see the reviews of a book on the book page + rating of a book
+- see average user rating
+- mark a genre as a favorite from the profile screen
+- mark an author as a favorite from the authors list
+- see who has read the book all year and when
+- search by (as lower case letters)
+	-title
+	-author
+	-genre
+- oragnize students by dragging and dropping and allow to auto sort into different numbers of groups.  Auto to lexile groupings as homogenous or heterogeneous
+- save and delete groups
+- on teacher profile see a list of each book a user is reading at the moment 

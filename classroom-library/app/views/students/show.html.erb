@@ -1,0 +1,300 @@
+<div id="biggest-badge-container"></div>
+
+<div id="big-badge-container1">
+  <div id="badge-container1" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+        <%= image_tag 'mystery.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Mystery
+      </div>
+    </div>
+  </div>
+  <div id="badge-container2" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+        <%= image_tag 'science_fiction.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Science Fiction
+      </div>
+    </div>
+  </div>
+  <div id="badge-container3" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+        <%= image_tag 'fantasy.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Fantasy
+      </div>
+    </div>
+  </div>
+</div>
+<div id="big-badge-container2" >
+  <div id="badge-container4" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+          <%= image_tag 'historical_fiction.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Historical Fiction
+      </div>
+    </div>
+  </div>
+  <div id="badge-container5" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+        <%= image_tag 'biography.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Biographies
+      </div>
+    </div>
+  </div>
+  <div id="badge-container6" class="badge-container">
+    <div class="flipper">
+      <div class="front">
+        <%= image_tag 'informational.jpg', class: 'badge-image' %>
+      </div>
+      <div class="back">
+        Informational
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="display-panel">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Favorite Books
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+            <% if @favorite_texts %>
+              <% @favorite_texts.each do |text| %>
+                <div class="favorite-genre-container">
+                  <a href="/texts/<%= text.id %>"><%= text.title %></a> by <%= text.author %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Favorite Genres
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+             <% @genres.each do |genre| %>
+                <div class="favorite-genre-container">
+                <%= render partial: 'genres/show', layout: false, locals: {genre: genre} %>
+                </div>
+             <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Favorite Authors
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <% @favorite_authors.each do |favorite_author| %>
+            <div class="favorite-genre-container">
+              <%= favorite_author.first_name %> <%= favorite_author.last_name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            My Ratings + Reviews
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+          <div class="review-container">
+            <% if @transactions %>
+              <% @transactions.each do |transaction| %>
+                <% if transaction.rating != nil %>
+                  <br>
+                  Rating: <%=  transaction.rating %>
+                  <br>
+                  <% text = Text.find_by(id: transaction.text_id) %>
+                  <%= text.title %>
+                  <br>
+                  <%= text.author %>
+                  <br>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="rating-container">
+            <% if @transactions %>
+              <% @transactions.each do |transaction| %>
+                <% if transaction.review_title != '' %>
+                  <br>
+                  <% text = Text.find_by(id: transaction.text_id) %>
+                  <a href="/texts/<%= text.id %>"><%= text.title %></a>
+                  <br>
+                  <%= text.author %>
+                  <br>
+                  <%= transaction.review_title %>
+                  <br>
+                  <%= transaction.review_content %>
+                  <br>
+                  <% if current_student.id == @student.id %>
+                    <%= render 'students/delete_review', locals: {transaction_id: transaction.id} %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Finished Books Stats
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+          <div id="completed-book-stats-container">
+            Total Books Finished: <%= @completed_texts.length  %>
+            <br>
+            Total Pages Read: <%= @total_pages_read %>
+            <br>
+            <br>
+          </div>
+          <div id="completed-book-container">
+            Completed Books
+            <% @completed_texts.each do |text| %>
+              <div class="completed-book">
+                <%= text.title %> by <%= text.author %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingSix">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Abandoned Books Stats
+          </a>
+        </h4>
+      </div>
+      <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+        <div class="panel-body">
+          <div>
+            Abandoned Books
+            <br>
+            Total Books Abandoned: <%= @abandoned_texts.length  %>
+            <% @abandoned_texts.each do |text| %>
+                  <br>
+              <%= text.title %> by <%= text.author %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2" >
+      <div class="well" id="recs-tab">
+        Try These Out!
+      </div>
+    </div>
+    <div class="col-xs-2" >
+      <div class="well" id="top-tab1">
+        Books
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="well" id="top-tab2">
+        Genres
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="well" id="top-tab3">
+        Ratings and Reviews
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="well" id="top-tab4">
+        Finished
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="well" id="top-tab5">
+        Abandoned
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-sm-2">
+      <div class="well  recs-area">
+        First
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="well  recs-area">
+              Second
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="well recs-area">
+              Three
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-10">
+      <div id="display-area" class="well">
+        Display Area
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+
+
+
+
+
+
+

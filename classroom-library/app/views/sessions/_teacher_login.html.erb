@@ -1,0 +1,7 @@
+<%= form_tag '/login_teacher' do %>
+  <%= text_field_tag :username, :attr, :placeholder => "placeholder text"%>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag "signin" %>
+  <a id="signup-link" href="/signup">or signup!</a>
+<% end %>

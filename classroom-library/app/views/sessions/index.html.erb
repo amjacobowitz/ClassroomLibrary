@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Sign In or Sign Up!</title>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <script src="/external/google-code-prettify/prettify.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="js/prefixfree.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="signin-body"></div>
+    <div class="grad"></div>
+    <div class="header">
+      <div>Byblio</div>
+      <br>
+      <div id="subtitle">The Modern Classroom Library</div>
+    </div>
+    <br>
+    <div class="login" id="teacher-signin-container">
+      <h3><b>Teacher</b></h3>
+      <%= render 'sessions/teacher_login' %>
+    </div>
+    <div class="login" id="student-signin-container">
+      <h3><b>Student</b></h3>
+      <%= render 'sessions/student_login' %>
+    </div>
+  </body>
+</html>

@@ -2,12 +2,130 @@
 <html>
 <head>
   <title>ClassroomLibrary</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
+  <script src="/external/google-code-prettify/prettify.js"></script>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/external/jquery.hotkeys.js"></script>
+
+
 </head>
 <body>
+  <div id="navbar-tabs-container">
+    <div class="navbar">
+      <div id="navbar-text-tabs">
+        <ul class="nav nav-pills">
+          <li role="presentation" ><a href="/dashboard">Dashboard</a></li>
+          <% if session[:teacher_id] %>
+            <li role="presentation"><a href="/teachers/<%= current_teacher.id %>">Profile</a></li>
+          <% else %>
+            <li role="presentation"><a href="/students/<%= current_student.id %>">Profile</a></li>
+          <% end %>
+          <li role="presentation" ><a href="/texts">Books</a></li>
+          <li role="presentation" ><a href="/authors">Authors</a></li>
+          <li role="presentation"><a href="/students_all">My School</a></li>
+          <% if session[:teacher_id] %>
+            <li role="presentation"><a href="/teachers/<%= current_teacher.id %>/students">My Class</a></li>
+          <% else %>
+            <li role="presentation"><a href="/students_my_class">My Class</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 
+  <% if current_student %>
+    <div id="current-book-container">
+      <%if current_book_checked_out(current_student) %>
+        Your Current Book:
+        <a href="/texts/<%= current_book_checked_out(current_student).id %>"><%= current_book_checked_out(current_student).title %></a>
+        <a href="/texts/<%= current_book_checked_out(current_student).id %>/checkin">Return Book</a>
+      <% else %>
+        You don't have a book checked out right now!
+      <% end %>
+      <br>
+      Current Lexile Range: <b><%= current_student.lexile_level - 100 %> -
+      <%= current_student.lexile_level + 50%></b>
+    </div>
+  <% end %>
+
+  <div id="user-info-wrapper">
+    <div id="quote-container">
+      <div id="quote-content-container">
+        <% random_quote %>
+        <%= session[:random_quote].content %>
+      </div>
+      <div id="quote-source-container">
+        <%= session[:random_quote].source %>
+      </div>
+    </div>
+    <div id="user-info-container">
+      <div id="user-info-text-container">
+       <% if session[:teacher_id] %>
+        <a class="welcome-sign" href="/teachers/<%= current_teacher.id %>">
+          <h1 class="user-info-text">
+            Welcome <%= current_teacher.first_name.capitalize %>!
+          </h1>
+        </a>
+       <% else %>
+        <a class="welcome-sign" href="/students/<%= current_student.id %>">
+          <h1 class="user-info-text">
+            Welcome <%= current_student.first_name.capitalize + ' ' + current_student.last_name[0].capitalize%>!
+          </h1>
+          <%= current_student.handle %>
+         </a>
+       <% end %>
+       </div>
+      </div>
+    </div>
+
+    <% if current_student %>
+      <div id="setting-dropdown">
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Settings</button>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="/students/<%= current_student.id %>/edit_password">Change password</a></li>
+            <li><a href="/students/<%= current_student.id %>/edit_handle">Change handle</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <div id="setting-dropdown">
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger">Settings</button>
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="/teachers/<%= current_teacher.id %>/edit_password">Change password</a></li>
+            <li><a href="/students/<%= current_teacher.id %>/edit_info">Change info</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+
+
+  <div id="search-dropdown">
+    <input type="text" id="search-texts" placeholder="search for book/author">
+  </div>
 <%= yield %>
 
 </body>
