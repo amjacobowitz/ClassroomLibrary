@@ -1,0 +1,15 @@
+Reviews
+<% all_student_reviews_by_book.each do |transaction| %>
+  <div>
+    <% student = Student.find_by(id: transaction.student_id) %>
+    <br>
+    <%= student.first_name.capitalize + ' ' + student.last_name.capitalize[0] %> says...
+    <br>
+    <%= transaction.rating %>
+    <br>
+    <%= transaction.review_title %>
+    <br>
+    <%= transaction.review_content %>
+    <br>
+  </div>
+<% end %>

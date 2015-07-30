@@ -366,6 +366,13 @@
    width: 33%;
  }
 
+ #rating-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 250px;
+ }
+
  .favorite-author-container{
    float: left;
    position: relative;

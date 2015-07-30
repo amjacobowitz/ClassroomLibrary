@@ -1,3 +1,21 @@
+THINGS THAT NEED TO BE PORTED STILL
+- authors controller and view
+- my school link
+- my class link
+- return a book link
+- rate a book view
+- All of the teacher page, including controller
+- fix all remaining forms that are not "form_for"
+- search feature
+
+
+
+
+
+
+
+
+
 On the teacher Profile
 - print out a grouping
 
@@ -91,4 +109,4 @@ COMPLETED
 	-genre
 - oragnize students by dragging and dropping and allow to auto sort into different numbers of groups.  Auto to lexile groupings as homogenous or heterogeneous
 - save and delete groups
-- on teacher profile see a list of each book a user is reading at the moment 
+- on teacher profile see a list of each book a user is reading at the moment

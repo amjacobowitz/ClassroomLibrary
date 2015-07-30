@@ -1,0 +1,6 @@
+<% if current_owner_of_text(text) %>
+  <li><%= current_owner_of_text(text).first_name.capitalize + ' ' + current_owner_of_text(text).last_name.capitalize[0] %></li>
+<% else %>
+  <li>This book has been returned.  It should be in the library.</li>
+<% end %>
+

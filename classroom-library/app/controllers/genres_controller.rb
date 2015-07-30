@@ -12,9 +12,6 @@ class GenresController < ApplicationController
 
     image_location = view_context.asset_url('favorite_icon.jpg')
     genre_id = params[:id]
-    p '*' * 50
-    p params
-    p '*' * 50
 
     if request.xhr?
       render json: {image_location: image_location, genre_id: genre_id}

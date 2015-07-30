@@ -1,2 +1,22 @@
-<h1>Texts#index</h1>
-<p>Find me in app/views/texts/index.html.erb</p>
+<div id="all-texts-container">
+   All Texts
+   <% if session[:teacher_id] %>
+   <%= link_to 'Add a Text to your Library', url: new_text_path %>
+   <% end %>
+
+  <% @all_texts.each do |text| %>
+    <br>
+    <%= link_to text.title.capitalize, text_path(text.id) %>
+  <% end %>
+</div>
+
+<div id="checked-out-texts-container">
+  Checked-Out Books
+  <% @checked_out_texts.each do |text| %>
+    <br>
+    <%= link_to text.title.capitalize, text_path(text.id) %>
+  <% end %>
+</div>
+
+
+

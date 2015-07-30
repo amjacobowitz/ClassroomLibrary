@@ -1,2 +1,17 @@
-<h1>Texts#new</h1>
-<p>Find me in app/views/texts/new.html.erb</p>
+<div class="container">
+   <%= form_for @text do |f| %>
+    <%= f.text_field :isbn, placeholder: 'isbn' %>
+    <br>
+    <%= f.text_field :title , placeholder: 'title' %>
+    <br>
+    <%= f.text_field :lexile_level , placeholder: 'lexile_level'  %>
+    <br>
+    <%= f.text_field :pages , placeholder: 'pages'  %>
+    <br>
+    <%= f.text_field :author , placeholder: 'author'  %>
+    <br>
+    <%= f.text_field :genre , placeholder: 'genre' %>
+    <br>
+    <%= f.submit 'Add a book' %>
+  <% end %>
+</div>

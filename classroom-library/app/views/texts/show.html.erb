@@ -1,2 +1,81 @@
-<h1>Texts#show</h1>
-<p>Find me in app/views/texts/show.html.erb</p>
+
+<div id="placeholder-div">
+</div>
+
+<div id="text-review-container">
+  <div id="accordion" class="panel-group">
+      <h3 id="text-review-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Write a Review</a></h3>
+          <div id="collapseOne" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= render partial: 'texts/review', layout: false, locals: {text: @text}  %>
+              </div>
+          </div>
+   </div>
+<div>
+
+<div id="display-book-info-container">
+
+  <h3><%= link_to "Checkout", student_checkout_path(@text)  %></h3>
+  <h4><%= link_to "Rate", rate_path(@text)  %></h4>
+
+  <% if session[:student_id] %>
+    <div class="favorite-unfavorite-container">
+    </div>
+  <% end %>
+
+  <div>
+    <%= @text.title%></a>
+    <br>
+    <br>
+    Average Rating: <%= @average_rating_by_book %>
+    <br>
+    <br>
+    Text ISBN
+    <li><%= @text.isbn %></li>
+    <br>
+
+    Lexile Level
+    <br>
+    <li><%= @text.lexile_level %></li>
+    <br>
+
+    Pages
+    <li><%= @text.pages %></li>
+    <br>
+
+    Author
+    <li><%= @text.author %></li>
+    <br>
+
+    Genre
+    <li><%= @text.genre %></li>
+
+    <br>
+
+    Currently checked out by:
+    <%= render partial: 'texts/current_checked_out', locals: {text: @text} %>
+
+    lives in this classroom:
+    <li><%= @text.classroom %></li>
+  </div>
+
+  <br
+
+  <%= render partial: '/texts/all_student_reviews_by_book', locals: {all_student_reviews_by_book: @all_student_reviews_by_book} %>
+
+  <% if session[:teacher_id] %>
+    <%= link_to "edit", edit_text_path(@text) %>
+
+    <%= form_for @text, method: 'delete'  do |t| %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+
+  <br>
+  These students have read this book so far this year:
+  <% @students_who_read_this_book.each do |student| %>
+    <br>
+    <%= other_student_name_and_initial(student) %>
+  <% end %>
+
+</div>

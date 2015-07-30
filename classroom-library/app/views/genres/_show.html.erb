@@ -1,11 +1,10 @@
 <%= genre.category %>
   <div class="favorite-unfavorite-container">
     <% if current_student.id == params[:id].to_i %>
+    <!-- This is not fixed.  The users can all favorite and unfavorite each other's genres at this time -->
       <%= link_to "/genres/#{genre.id}/#{favorite_or_unfavorite_genre(current_student, genre)}" do %>
 
         <%= image_tag "#{favorite_or_unfavorite_genre(current_student, genre)}_icon.jpg", class: 'favorite-unfavorite-image-genre' %>
       <% end %>
       <% end %>
   </div>
-
-      <!-- <a href="/genres/<%# genre.id %>/<%# favorite_or_unfavorite_genre(current_student, genre) %>"> -->

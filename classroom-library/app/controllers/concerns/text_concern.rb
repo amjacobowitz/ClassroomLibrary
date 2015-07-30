@@ -34,15 +34,15 @@ module TextConcern
     @most_recent_transaction = StudentText.where(student_id: student.id).where(text_id: text.id).order(:id).last
   end
 
-  def favorite_or_unfavorite(student, text)
+  def favorite_or_unfavorite_text(student, text)
     if most_recent_transaction(student, text)
       if most_recent_transaction(student, text).favorite == true
-        @favorite_or_unfavorite = "favorite"
+        @favorite_or_unfavorite_text = "favorite"
       else
-        @favorite_or_unfavorite = "unfavorite"
+        @favorite_or_unfavorite_text = "unfavorite"
       end
     else
-      @favorite_or_unfavorite = "unfavorite"
+      @favorite_or_unfavorite_text = "unfavorite"
     end
   end
 

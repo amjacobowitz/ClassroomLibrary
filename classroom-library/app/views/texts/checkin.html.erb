@@ -1,0 +1,45 @@
+<div id="checkin-container">
+  <div data-role="main" class="ui-content">
+      <fieldset class="ui-field-contain">
+      <form action="/texts/<%= params[:id] %>/checkin" method="post">
+        <input type="hidden" name="_method" value="put">
+        <br>
+        <label>Give this book a rating!</label>
+        <input type="range" name="rating" min="0" max="5" steps="1">
+        <br>
+        <label>Is this one of your favorite books now?</label>
+        <label for="favorite">Yes</label>
+        <input type="radio" name="favorite" value="yes">
+        <label for="favorite">No</label>
+        <input type="radio" name="favorite" value="no">
+        <br>
+        <label>Did you abandon this book or complete it?</label>
+
+        <label>Abandoned: </label>
+        <input type="radio" name="decision" value="abandoned">
+        <label>Completed: </label>
+        <input type="radio" name="decision" value="completed">
+        <br>
+
+            <label for="reason_for_abandoning">Why did you abandon your book?</label>
+            <select name="reason_for_abandoning" id="day">
+              <option value="too easy">Too easy?</option>
+              <option value="too hard">Too hard?</option>
+              <option value="too long">Too long?</option>
+              <option value="too short">Too short?</option>
+              <option value="boring">Boring?</option>
+              <option value="other">Some other reason?</option>
+            </select>
+
+            <br>
+            <input type="textarea" id="other-reason-abandon" name="other_reason_for_abandoning" placeholder="What is your other reason?">
+            <br>
+        <input type="text" name="review_title" placeholder="Give your review a good title, here!">
+        <br>
+        <input type="textbox" name="review_content" placeholder="Tell the world what you think!">
+        <br>
+        <input type="submit" data-inline="true" value="Return">
+      </form>
+      </fieldset>
+  </div>
+</div>

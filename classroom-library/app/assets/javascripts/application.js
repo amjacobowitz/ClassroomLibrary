@@ -290,7 +290,6 @@ $(document).ready(function(){
       url: path,
       type: 'put',
       data: requestData,
-      dataType: 'json'
 
     }).done(function(){
       $(targetedDeleteForm).parent().remove()
@@ -313,7 +312,7 @@ $(document).ready(function(){
     $.ajax({
       url: route,
       type: 'get',
-      dataType: 'json',
+
     }).done(function(serverData){
     var baseRoute = $('.favorite-unfavorite-image-text').parent().attr("href")
     if (baseRoute[9] == "u" ) {
@@ -346,7 +345,7 @@ $(document).ready(function(){
     $.ajax({
       url: route,
       type: 'get',
-      dataType: 'json',
+
     }).done(function(serverData){
 
       if (baseRoute[10] == "u") {
@@ -401,7 +400,6 @@ $(document).ready(function(){
           url: '/texts/search',
           type: 'get',
           data: {'search_keyword': query},
-
         });
 
         ajaxRequest.done(function(serverData){

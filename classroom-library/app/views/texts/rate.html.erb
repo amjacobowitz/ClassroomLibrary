@@ -1,0 +1,9 @@
+<div id="rating-container">
+  <form action="/texts/<%= @text.id %>/rate" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label>Give this book a rating!</label>
+    <input type="range" name="rating" min="0" max="5" steps="1">
+    <br>
+    <input type="submit" value="rate">
+  </form>
+</div>
