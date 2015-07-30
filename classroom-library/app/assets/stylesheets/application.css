@@ -1,15 +1,981 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+ .signin-body{
+   position: absolute;
+   top: -20px;
+   left: -20px;
+   right: -40px;
+   bottom: -40px;
+   width: auto;
+   height: auto;
+   background-image: url(library_background.jpg);
+   background-size: cover;
+   -webkit-filter: blur(5px);
+   z-index: 0;
+ }
+
+ #subtitle{
+   font-size: 18px;
+   color: white;
+ }
+
+ .grad{
+   position: absolute;
+   top: -20px;
+   left: -20px;
+   right: -40px;
+   bottom: -40px;
+   width: auto;
+   height: auto;
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+   z-index: 1;
+   opacity: 0.7;
+ }
+
+ .header{
+   position: absolute;
+   top: calc(50% - 35px);
+   left: calc(40% - 255px);
+   z-index: 2;
+ }
+
+ .header div{
+   float: left;
+   color: #fff;
+   font-family: 'Exo', sans-serif;
+   font-size: 35px;
+   font-weight: 200;
+ }
+
+ .login{
+   position: absolute;
+   height: 150px;
+   width: 350px;
+   padding: 10px;
+   z-index: 2;
+ }
+
+ .login input[type=text]{
+   width: 250px;
+   height: 30px;
+   background: transparent;
+   border: 1px solid rgba(255,255,255,0.6);
+   border-radius: 2px;
+   color: #fff;
+   font-family: 'Exo', sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+   padding: 4px;
+ }
+
+ #teacher-signin-container{
+   top: calc(20% - 75px);
+   right: calc(40% - 50px);
+ }
+
+ #student-signin-container{
+   top: calc(20% - 75px);
+   right: calc(10% - 50px);
+ }
+
+ #teacher-signin-container h3{
+   color: black;
+   font-weight: 300;
+   background-color: white;
+   opacity: 0.3;
+   width: 75%;
+   border-radius: 2px;
+ }
+
+ #student-signin-container h3{
+   color: white;
+   font-weight: 300;
+   background-color: black;
+   opacity: 0.3;
+   width: 75%;
+   border-radius: 2px;
+ }
+
+ a#signup-link{
+   color: white;
+ }
+
+ .login input[type=password]{
+   width: 250px;
+   height: 30px;
+   background: transparent;
+   border: 1px solid rgba(255,255,255,0.6);
+   border-radius: 2px;
+   color: white;
+   font-family: 'Exo', sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+   padding: 4px;
+   margin-top: 10px;
+ }
+
+ .login input[type=button]{
+   width: 260px;
+   height: 35px;
+   background: #fff;
+   border: 1px solid #fff;
+   cursor: pointer;
+   border-radius: 2px;
+   color: #a18d6c;
+   font-family: 'Exo', sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+   padding: 6px;
+   margin-top: 10px;
+ }
+
+ .login input[type=submit]:hover{
+   opacity: 0.8;
+ }
+
+ .login input[type=submit]:active{
+   opacity: 0.6;
+ }
+
+ .login input[type=text]:focus{
+   outline: none;
+   border: 1px solid rgba(255,255,255,0.9);
+ }
+
+ .login input[type=password]:focus{
+   outline: none;
+   border: 1px solid rgba(255,255,255,0.9);
+ }
+
+ .login input[type=submit]:focus{
+   outline: none;
+ }
+
+ /*::-webkit-input-placeholder {
+    color: white;
+    opacity: .8;
+    weight: 300px;
+ }
+ */
+
+ #navbar-tabs-container{
+   left: 3%;
+   position: absolute;
+   top: 3px;
+   width: 100%;
+ }
+
+ #navbar-text-tabs{
+   position: relative;
+ }
+
+ #current-book-container{
+   position: absolute;
+   left: 70%;
+   top: 3px;
+   font-size: 18px;
+ }
+
+ #user-info-wrapper{
+   width: 99%;
+   height: 100px;
+   top: 52px;
+   margin-left: 5px;
+   background-color: black;
+   position: absolute;
+   opacity: 0.8;
+ }
+
+ #quote-container{
+   width: 45%;
+   position: absolute;
+   top: 5px;
+   left: 3%;
+ }
+
+ #quote-content-container{
+   font-size: 18px;
+   color: white;
+ }
+
+ #quote-source-container{
+   font-size: 13px;
+   color: white;
+ }
+
+ #setting-dropdown{
+   left:85%;
+   top:110px;
+   position: absolute;
+ }
+
+ #user-info-container{
+   position: absolute;
+   left: 75%;
+   width: 30%;
+ }
+
+ #user-info-text-container{
+   position: relative;
+ }
+
+
+ #search-dropdown{
+   position: absolute;
+   top: 22px;
+   left: 53%;
+   width: 15%%;
+   color: black;
+ }
+
+ #search-texts{
+   position: relative;
+   font-size: 18px;
+   border: 2px solid black;
+   width: 100%;
+ }
+
+
+ .new-search-result{
+   color: black;
+   background-color: white;
+   opacity: 0.8;
+   border-radius: 2px;
+   border: 1px solid black;
+ }
+
+ li > a {
+   color: black;
+ }
+
+ .user-info-text{
+   color: white;
+ }
+
+ .col-lg-12{
+   background-color: #DDA0DD;
+   text-align: center;
+   color: white;
+ }
+
+ #display-panel{
+   top:180px;
+   position: absolute;
+   width: 40%;
+   right: 5%;
+   text-align: right;
+ }
+
+ #biggest-badge-container{
+   left: 3%;
+   top: 180px;
+   width: 51%;
+   height: 420px;
+   position: absolute;
+   opacity: 0.8;
+   background-color: black;
+   z-index: -1
+ }
+
+ #big-badge-container1{
+   left: 5%;
+   top: 190px;
+   width: 45%;
+   height: 200px;
+   position: absolute;
+   z-index: 1
+ }
+
+ #big-badge-container2{
+   left: 5%;
+   top: 380px;
+   width: 45%;
+   height: 200px;
+   position: absolute;
+   z-index: 1
+ }
+
+ #badge-container1 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 0%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+ #badge-container2 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 35%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+ #badge-container3 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 70%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+ #badge-container4 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 0%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+ #badge-container5 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 35%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+ #badge-container6 {
+   perspective: 1000;
+   position: absolute;
+   border: 1px solid black;
+   left: 70%;
+   width: 200px;
+   height: 200px;
+   z-index: 1
+ }
+
+
+
+ .favorite-genre-container{
+   float: left;
+   position: relative;
+   width: 33%;
+ }
+
+ .favorite-author-container{
+   float: left;
+   position: relative;
+   width: 33%;
+ }
+
+ .favorite-text-container{
+   float: left;
+   position: relative;
+   width: 33%;
+ }
+
+ #completed-book-stats-container{
+   float: left;
+   position: relative;
+   width: 49%;
+   text-align: left;
+ }
+
+ #completed-book-container{
+   float: left;
+   position: relative;
+   width: 49%;
+   text-align: center;
+ }
+
+
+
+ .favorite-unfavorite-container{
+  display: inline;
+ }
+
+ .favorite-unfavorite-image-genre{
+  display: inline;
+  width: 50px;
+ }
+
+ .favorite-unfavorite-image-text{
+  display: inline;
+  width: 50px;
+ }
+
+ .favorite-unfavorite-image-tab{
+   display: inline;
+   width: 30px;
+   border-radius: 40%;
+ }
+
+ #review-title{
+   width: 25%;
+ }
+
+ #hidden-editor{
+  display: none;
+ }
+
+ #editor {
+  max-height: 250px;
+  height: 250px;
+  background-color: white;
+  border-collapse: separate;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 4px;
+  box-sizing: content-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+  overflow: scroll;
+  outline: none;
+ }
+ #voiceBtn {
+   width: 20px;
+   color: transparent;
+   background-color: transparent;
+   transform: scale(2.0, 2.0);
+   -webkit-transform: scale(2.0, 2.0);
+   -moz-transform: scale(2.0, 2.0);
+   border: transparent;
+   cursor: pointer;
+   box-shadow: none;
+   -webkit-box-shadow: none;
+ }
+
+ div[data-role="editor-toolbar"] {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+
+ .badge-image{
+   width: 200px;
+   height: 200px;
+ }
+
+
+   /* flip the pane when hovered */
+   .badge-container:hover .flipper, .badge-container.hover .flipper {
+     transform: rotateY(180deg);
+   }
+
+ .badge-container, .front, .back {
+   width: 200px;
+   height: 200px;
+   background-color: #D3D3D3;
+ }
+
+ .badge-container{
+     background-color: gray;
+ }
+
+ /* flip speed goes here */
+ .flipper {
+   transition: 0.8s;
+   transform-style: preserve-3d;
+   position: relative;
+ }
+
+ /* hide back of pane during swap */
+ .front, .back {
+   backface-visibility: hidden;
+
+   position: absolute;
+   top: 0;
+   left: 0;
+ }
+
+ /* front pane, placed above back */
+ .front {
+   z-index: 2;
+
+ }
+
+ /* back, initially hidden pane */
+ .back {
+   transform: rotateY(180deg);
+   background-color: black;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+ }
+
+ #footer{
+   position: absolute;
+   bottom:0;
+   left:0;
+   right:0;
+   height:30px;
+ }
+
+ #checkin-container{
+   width:50%;
+   left: 25%;
+   position: absolute;
+   top: 30%;
+ }
+
+ #change-handle-container{
+   width:30%;
+   left: 40%;
+   position: absolute;
+   top: 25%;
+ }
+
+ #change-password-container{
+   width:30%;
+   left: 40%;
+   position: absolute;
+   top: 25%;
+ }
+
+ #all-books-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 25%;
+ }
+
+ #all-authors-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 250px;
+ }
+
+ #students-school-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 25%;
+ }
+
+
+ #students-class-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 25%;
+ }
+
+ #placeholder-div{
+   width: 100%;
+   height: 250px;
+ }
+
+ #text-review-container{
+   font-size: 18px;
+   left-margin: 100px;
+ }
+
+ #text-review-title{
+   text-align:center;
+ }
+
+
+ #display-book-info-container{
+   position: relative;
+   left: 15%;
+   font-size: 18px;
+ }
+
+
+
+ #all-texts-container{
+   position: absolute;
+   left: 15%;
+   top: 25%;
+   font-size: 18px;
+ }
+
+ #checked-out-texts-container{
+   position: absolute;
+   left: 65%;
+   top: 25%;
+   font-size: 18px;
+ }
+
+
+
+ #teacher-display-container{
+   width:30%;
+   left: 30%;
+   position: absolute;
+   top: 200px;
+ }
+
+ #books-currently-being-read-container{
+   position: absolute;
+   width:30%;
+   left: 30%;
+   top: 250px;
+
+ }
+
+
+
+ #user-group-area{
+   position: absolute;
+   width: 19%;
+   top: 190px;
+   left: 75%;
+ }
+
+
+ #group-display-area{
+   position: absolute;
+   width: 70%;
+   top: 250px;
+   left: 5%;
+ }
+
+ #grouping-selection{
+   position: absolute;
+   top: 170px;
+   left: 10%;
+ }
+
+
+ #group-display-area ul{
+   width: 15%;
+   height: 220px;
+   margin: 20px;
+ }
+
+ .group-student-info{
+
+ }
+
+
+ .grouping-labels{
+   margin: 20px;
+ }
+
+ [data-draggable="target"]
+ {
+     float:left;
+     list-style-type:none;
+
+     width:42%;
+     height:7.5em;
+     overflow-y:auto;
+
+     margin:0 0.5em 0.5em 0;
+     padding:0.5em;
+
+     border:2px solid #888;
+     border-radius:0.2em;
+
+     background:#ddd;
+     color:#555;
+ }
+
+ /* drop target state */
+ [data-draggable="target"][aria-dropeffect="move"]
+ {
+     border-color:#68b;
+
+     background:#fff;
+ }
+
+ /* drop target focus and dragover state */
+ [data-draggable="target"][aria-dropeffect="move"]:focus,
+ [data-draggable="target"][aria-dropeffect="move"].dragover
+ {
+     outline:none;
+
+     box-shadow:0 0 0 1px #fff, 0 0 0 3px #68b;
+ }
+
+ /* draggable items */
+ [data-draggable="student"]
+ {
+     display:block;
+     list-style-type:none;
+
+     margin:0 0 2px 0;
+     padding:0.2em 0.4em;
+
+     border-radius:0.2em;
+
+     line-height:1.3;
+ }
+
+ /* students focus state */
+ [data-draggable="student"]:focus
+ {
+     outline:none;
+
+     box-shadow:0 0 0 2px #68b, inset 0 0 0 1px #ddd;
+ }
+
+ /* students grabbed state */
+ [data-draggable="student"][aria-grabbed="true"]
+ {
+     background:#8ad;
+     color:#fff;
+ }
+
+
+
+
+
+ /*NOT CURRENTLY BEING USED BELOW HERE*/
+ /*
+
+
+ Circle spin-out menu
+ /*
+
+ #group-spacing-container{
+   position: relative;
+   width: 80px;
+   height: 200px;
+   float: left;
+   margin-left: 280px;
+ }*/
+ /*
+
+ .grouping-container {
+   position: relative;
+   height: 140px;
+   margin-top: -70px;
+   margin-left: -70px;
+   width: 140px;
+   height: 140px;
+ }
+
+ .grouping-container,
+ .grouping-container button {
+   font-family: 'Oswald', sans-serif;
+   font-weight: 300;
+ }*/
+
+ /*.grouping-container button {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   background: black;
+   border-radius: 50%;
+   border: 0;
+   color: white;
+   font-size: 20px;
+   cursor: pointer;
+   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+   transition: all .1s;
+ }
+
+ .grouping-container button:hover { background: black; }
+
+ .grouping-container button:focus { outline: none; }
+
+ .grouping-container ul {
+   position: absolute;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   top: -20px;
+   right: -20px;
+   bottom: -20px;
+   left: -20px;
+ }
+
+ .grouping-container li {
+   position: absolute;
+   width: 90px;
+   height: 100%;
+   margin: 0 45px;
+   -webkit-transform: rotate(-360deg);
+   transition: all 0.8s ease-in-out;
+ }
+
+ .grouping-container li input { display: none; }
+
+ .grouping-container li input + label {
+   position: absolute;
+   left: 50%;
+   bottom: 100%;
+   width: 0;
+   height: 0;
+   line-height: 1px;
+   margin-left: 0;
+   background: black;
+   border-radius: 50%;
+   text-align: center;
+   font-size: 1px;
+   overflow: hidden;
+   cursor: pointer;
+   box-shadow: none;
+   transition: all 0.8s ease-in-out, color 0.1s, background 0.1s;
+ }
+
+ .grouping-container li input + label:hover { background: #f0f0f0; }
+
+ .grouping-container li input:checked + label {
+   background: #5cb85c;
+   color: white;
+ }
+
+ .grouping-container li input:checked + label:hover { background: #449d44; }
+
+ .grouping-container.open li input + label {
+   width: 80px;
+   height: 80px;
+   line-height: 80px;
+   margin-left: -40px;
+   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+   font-size: 14px;
+ }
+
+ <!--
+ <script>
+
+   var nbOptions = 8; // number of menus
+   var angleStart = -360; // start angle
+
+   // jquery rotate animation
+   function rotate(li,d) {
+     $({d:angleStart}).animate({d:d}, {
+      step: function(now) {
+       $(li)
+         .css({ transform: 'rotate('+now+'deg)' })
+         .find('label')
+          .css({ transform: 'rotate('+(-now)+'deg)' });
+      }, duration: 0
+     });
+   }
+
+   // show / hide the options
+   function toggleOptions(s) {
+     $(s).toggleClass('open');
+     var li = $(s).find('li');
+     var deg = $(s).hasClass('half') ? 180/(li.length-1) : 360/li.length;
+     for(var i=0; i<li.length; i++) {
+      var d = $(s).hasClass('half') ? (i*deg)-90 : i*deg;
+      $(s).hasClass('open') ? rotate(li[i],d) : rotate(li[i],angleStart);
+     }
+   }
+
+   $('.grouping-container button').click(function(e) {
+     toggleOptions($(this).parent());
+   });
+
+   // setTimeout(function() { toggleOptions('.grouping-container'); }, 100);
+ </script> -->
+
+
+
+ */
+
+
+
+
+
+
+
+ /*
+
+ Tab display for student home page
+ #display-area{
+   height: 420px;
+   border-right: 2px solid black;
+   border-left: 2px solid black;
+   border-bottom: 2px solid black;
+   z-index: -1;
+ }
+
+ .recs-area{
+   height: 125px;
+ }
+
+
+ #recs-tab{
+   margin-bottom: -8px;
+   background-color: black;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   z-index: 1;
+ }
+
+ #top-tab1{
+   margin-bottom: -10px;
+   background-color: #DDA0DD;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   border-radius: 10%;
+   font-size: 24px;
+   height: 80px;
+   z-index: 1;
+ }
+
+ #top-tab2{
+   margin-bottom: -10px;
+   font-size: 24px;
+   background-color: #ffd1dc ;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   border-radius: 10%;
+   height: 80px;
+   z-index: 1;
+ }
+
+ #top-tab3{
+   margin-bottom: -10px;
+   font-size: 16px;
+   background-color: #9cc4d9;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   border-radius: 10%;
+   height: 80px;
+   z-index: 1;
+ }
+
+ #top-tab4{
+   margin-bottom: -10px;
+   font-size: 24px;
+   background-color: #d9b19c;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   border-radius: 10%;
+   height: 80px;
+   z-index: 1;
+ }
+
+ #top-tab5{
+   margin-bottom: -10px;
+   font-size: 24px;
+   background-color: #c4d99c;
+   text-align: center;
+   color: white;
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+   border-top: 1px solid black;
+   border-radius: 10%;
+   height: 80px;
+   z-index: 1;
+ }*/
